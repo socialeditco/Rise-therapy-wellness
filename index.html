@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Rise Therapy & Wellness | Demo Redesign Proposal</title>
-  <meta name="description" content="A warm, neuro-affirming website redesign demo for Rise Therapy & Wellness with cinematic hero animation, trust-building reviews, SEO/AEO strategy, and cleaner conversion paths." />
+  <meta name="description" content="A warm, neuro-affirming website redesign demo for Rise Therapy & Wellness with real imagery, cinematic hero animation, trust-building reviews, SEO/AEO strategy, and cleaner conversion paths." />
   <meta name="theme-color" content="#FFFDF7" />
   <meta property="og:title" content="Rise Therapy & Wellness — Demo Redesign" />
   <meta property="og:description" content="A high-impact demo proposal showing a warmer, clearer, faster, and more searchable Rise Therapy & Wellness website." />
@@ -17,25 +17,7 @@
   <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"MedicalBusiness",
-    "name":"Rise Therapy & Wellness",
-    "url":"https://www.risetherapyandwellness.org/",
-    "telephone":"+1-269-203-7394",
-    "faxNumber":"+1-269-359-3710",
-    "email":"connect@risetherapyandwellness.org",
-    "address":{"@type":"PostalAddress","streetAddress":"8599 N 32nd Street, Suite 104","addressLocality":"Richland","addressRegion":"MI","postalCode":"49083","addressCountry":"US"},
-    "areaServed":["Richland","Gull Lake","Kalamazoo","Battle Creek","Southwest Michigan"],
-    "medicalSpecialty":["Occupational Therapy","Speech-Language Pathology","Physical Therapy","Behavioral Health"],
-    "makesOffer":[
-      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Occupational Therapy"}},
-      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Speech Therapy"}},
-      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Rise Sports & Groups"}},
-      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Sensory Room Design & Training"}},
-      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Professional Development & Staff Trainings"}}
-    ]
-  }
+  {"@context":"https://schema.org","@type":"MedicalBusiness","name":"Rise Therapy & Wellness","url":"https://www.risetherapyandwellness.org/","telephone":"+1-269-203-7394","faxNumber":"+1-269-359-3710","email":"connect@risetherapyandwellness.org","address":{"@type":"PostalAddress","streetAddress":"8599 N 32nd Street, Suite 104","addressLocality":"Richland","addressRegion":"MI","postalCode":"49083","addressCountry":"US"},"areaServed":["Richland","Gull Lake","Kalamazoo","Battle Creek","Southwest Michigan"],"medicalSpecialty":["Occupational Therapy","Speech-Language Pathology","Physical Therapy","Behavioral Health"],"makesOffer":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Occupational Therapy"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Speech Therapy"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Rise Sports & Groups"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Sensory Room Design & Training"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Professional Development & Staff Trainings"}}]}
   </script>
 </head>
 <body>
@@ -58,7 +40,7 @@
     </div>
 
     <nav class="main-nav container" aria-label="Primary navigation">
-      <a class="brand" href="#hero" aria-label="Rise Therapy & Wellness home"><img src="assets/logo.svg" alt="Rise Therapy & Wellness" /></a>
+      <a class="brand" href="#hero" aria-label="Rise Therapy & Wellness home"><img src="assets/logo-full-color-horizontal.webp" alt="Rise Therapy & Wellness" /></a>
       <button class="nav-toggle" aria-expanded="false" aria-controls="navMenu">Menu</button>
       <div class="nav-menu" id="navMenu">
         <a href="#services">Services</a>
@@ -80,23 +62,35 @@
       <div class="hero-pin">
         <div class="hero-bg storm-bg"></div>
         <div class="hero-bg bright-bg"></div>
-        <div class="cloud-layer dark-clouds" aria-hidden="true">
-          <div class="cloud cloud-1"></div><div class="cloud cloud-2"></div><div class="cloud cloud-3"></div><div class="cloud cloud-4"></div>
+
+        <div class="rain-layer" aria-hidden="true"></div>
+
+        <div class="hero-weather storm-clouds" aria-hidden="true">
+          <img class="cloud-img storm storm-a" src="assets/hero-cloud-storm.webp" alt="" />
+          <img class="cloud-img storm storm-b" src="assets/hero-cloud-storm-1000.webp" alt="" />
+          <img class="cloud-img storm storm-c" src="assets/hero-cloud-storm-640.webp" alt="" />
         </div>
-        <div class="cloud-layer light-clouds" aria-hidden="true">
-          <div class="cloud cloud-5"></div><div class="cloud cloud-6"></div><div class="cloud cloud-7"></div><div class="cloud cloud-8"></div>
+
+        <div class="hero-weather clear-weather" aria-hidden="true">
+          <img class="rainbow-img" src="assets/hero-rainbow.webp" alt="" />
+          <img class="cloud-img white white-a" src="assets/hero-cloud-white.webp" alt="" />
+          <img class="cloud-img white white-b" src="assets/hero-cloud-white-1000.webp" alt="" />
+          <img class="cloud-img white white-c" src="assets/hero-cloud-white-640.webp" alt="" />
         </div>
-        <div class="hero-logo-stage" aria-hidden="true">
+
+        <div class="hero-logo-stage" aria-label="Rise logo reveal">
           <div class="logo-sun-glow"></div>
-          <img class="hero-logo" src="assets/logo.svg" alt="" />
+          <img class="hero-sun-mark" src="assets/rise-sun-actual.webp" alt="Rise sun mark" />
+          <img class="hero-rise-wordmark" src="assets/rise-wordmark-navy.webp" alt="Rise" />
+          <div class="hero-brand-subline">THERAPY &amp; WELLNESS</div>
         </div>
-        <div class="hero-photo-card" aria-label="Placeholder for therapist warmly interacting with child or family in therapy room">
-          <div class="therapy-scene">
-            <div class="scene-window"></div><div class="scene-shelf"></div><div class="scene-therapist"></div><div class="scene-child"></div><div class="scene-table"></div><div class="scene-ball"></div><div class="scene-blocks"></div>
-          </div>
-          <div class="photo-tag">Hero image placeholder: therapist + child/family in a warm sensory-informed room</div>
+
+        <figure class="hero-photo-card">
+          <img src="assets/hero-reveal.webp" alt="Therapist warmly interacting with a child in a sensory-informed therapy room" />
+          <figcaption>A warm, real care moment replaces generic clinic visuals.</figcaption>
           <div class="sunbeam"></div>
-        </div>
+        </figure>
+
         <div class="container hero-content">
           <div class="hero-copy">
             <p class="eyebrow">Warm • Modern • Neuro-affirming • Whole-person care</p>
@@ -106,7 +100,7 @@
           </div>
           <aside class="hero-note card">
             <strong>WOW-factor hero direction</strong>
-            <p>On scroll: storm clouds slide apart → white clouds appear → logo fades in → sun shines → therapist/family visual fades in under the light.</p>
+            <p>Scroll-controlled sequence: storm + rain → clouds part → rainbow and white clouds → actual Rise sun → actual Rise wordmark → care image reveal.</p>
           </aside>
         </div>
       </div>
@@ -115,7 +109,7 @@
     <section class="section-pad intro" id="proposal">
       <div class="container three-up">
         <article class="card dark-card reveal"><span class="circle-num">01</span><h2>Built like a powerful proposal.</h2><p>This demo does more than look better. It explains what should change, why it matters, and how the new site becomes a stronger front desk, brochure, resource library, hiring page, and routing system.</p></article>
-        <article class="card reveal"><span class="circle-num">02</span><h3>Immediate cleanup</h3><ul class="check-list"><li>Uniform header spacing and button sizing</li><li>Aligned cards and cleaner section rhythm</li><li>Trust section with real Google reviews</li><li>Expanded Search & AI strategy section</li></ul></article>
+        <article class="card reveal"><span class="circle-num">02</span><h3>Immediate cleanup</h3><ul class="check-list"><li>Actual brand assets in the hero</li><li>Real Rise imagery throughout the page</li><li>Trust section with real Google reviews</li><li>Expanded Search & AI strategy section</li></ul></article>
         <article class="card reveal"><span class="circle-num">03</span><h3>Design principle</h3><p>We give them tasty niblets: enough strategy to prove we know exactly what we are doing, without handing over the full meal or the recipe.</p></article>
       </div>
     </section>
@@ -140,10 +134,10 @@
       <div class="container split-layout">
         <div class="sticky-copy reveal"><p class="eyebrow">Who we support</p><h2>Audience-based pathways reduce confusion.</h2><p>Families do not always know whether they need OT, speech, groups, school support, or a consultation. The site should let them start from the path that sounds most like their situation.</p><div class="mini-proof">If people are in your area and searching for services you offer, you should always be seen — and when they land, they should instantly know they are in the right place.</div></div>
         <div class="audience-grid reveal">
-          <article class="audience-card"><div class="mini-visual child-visual"></div><h3>Children</h3><p>Play, regulation, motor planning, communication, feeding, and participation.</p></article>
-          <article class="audience-card"><div class="mini-visual teen-visual"></div><h3>Teens</h3><p>Confidence, independence, executive functioning, emotional regulation, and routines.</p></article>
-          <article class="audience-card"><div class="mini-visual adult-visual"></div><h3>Adults & Families</h3><p>Daily living, wellness, caregiver support, and home/community strategies.</p></article>
-          <article class="audience-card"><div class="mini-visual partner-visual"></div><h3>Schools & Partners</h3><p>Training, consultation, sensory spaces, IEP/504 support, and inclusive programs.</p></article>
+          <article class="audience-card image-card-small"><img src="assets/child-ot-fine-motor.webp" alt="Child receiving occupational therapy support" /><h3>Children</h3><p>Play, regulation, motor planning, communication, feeding, and participation.</p></article>
+          <article class="audience-card image-card-small"><img src="assets/speech-therapy-picture-cards.webp" alt="Speech therapy using picture cards" /><h3>Teens</h3><p>Confidence, independence, executive functioning, emotional regulation, and routines.</p></article>
+          <article class="audience-card image-card-small"><img src="assets/adult-daily-living-support.webp" alt="Adult daily living support" /><h3>Adults & Families</h3><p>Daily living, wellness, caregiver support, and home/community strategies.</p></article>
+          <article class="audience-card image-card-small"><img src="assets/community-richland-connection.webp" alt="Community-centered support" /><h3>Schools & Partners</h3><p>Training, consultation, sensory spaces, IEP/504 support, and inclusive programs.</p></article>
         </div>
       </div>
     </section>
@@ -152,7 +146,11 @@
       <div class="container">
         <div class="section-heading reveal"><p class="eyebrow">Trust section</p><h2>Real Google reviews, presented with warmth and whimsy.</h2><p>Clouds, stars, movement objects, and a light playful feel keep the section friendly while the real reviews do the selling.</p></div>
         <div class="trust-stage reveal">
-          <div class="trust-cloud cloud-a"></div><div class="trust-cloud cloud-b"></div><div class="whimsy unicorn">🦄</div><div class="whimsy ball">⚽</div><div class="whimsy star">★</div>
+          <img class="trust-pop trust-sun-rays" src="assets/Sun%20Rays.png" alt="" aria-hidden="true" />
+          <img class="trust-pop trust-unicorn-img" src="assets/Unicorn.png" alt="" aria-hidden="true" />
+          <img class="trust-pop trust-ball-img" src="assets/Blue%20Therapy%20Ball.png" alt="" aria-hidden="true" />
+          <img class="trust-pop trust-blocks-img" src="assets/Blocks.png" alt="" aria-hidden="true" />
+          <img class="trust-pop trust-stars-img" src="assets/Stars.png" alt="" aria-hidden="true" />
           <div class="trust-meta"><span>Google 5-star reviews</span><span>Auto-scroll</span><span>Drag desktop / swipe mobile</span></div>
           <div class="trust-carousel" id="trustCarousel"><div class="trust-track" id="trustTrack">
             <article class="review-card"><div class="stars">★★★★★</div><p>“My child really never cared for people. In Mrs Marie Bell my child found her person. Rise is our family! I highly recommend.”</p><strong>Lolisa.S</strong></article>
@@ -172,7 +170,7 @@
     <section class="section-pad intake" id="intake">
       <div class="container two-up">
         <article class="card reveal"><p class="eyebrow">New-client flow</p><h2>Turn static documents into a guided experience.</h2><p>The website should act like a better front desk: guiding families, referral partners, and existing clients into the right path without forcing them to hunt through PDFs, portal links, or disconnected forms.</p><ol class="flow-list"><li><strong>Reach out</strong><span>Phone, short form, portal, or referral upload.</span></li><li><strong>Route correctly</strong><span>New client, referral, groups, training, billing, or employment.</span></li><li><strong>Set expectations</strong><span>60-minute evaluation, caregiver involvement, tour, strengths/concerns discussion.</span></li><li><strong>Track conversion</strong><span>Measure calls, CTA clicks, starts, completions, and portal exits.</span></li></ol></article>
-        <article class="card packet-card reveal"><div class="packet-visual"><span>Welcome Packet</span><small>PDF → mobile-friendly web content</small></div><h3>Client Welcome Packet opportunity</h3><p>Make the packet easier to scan, easier to download, easier to understand before the first visit, and stronger for SEO/AEO.</p></article>
+        <article class="card packet-card reveal"><img src="assets/welcome-packet-branded-materials.webp" alt="Rise welcome packet and branded materials" /><div><h3>Client Welcome Packet opportunity</h3><p>Make the packet easier to scan, easier to download, easier to understand before the first visit, and stronger for SEO/AEO.</p></div></article>
       </div>
     </section>
 
@@ -188,49 +186,16 @@
       </div>
     </section>
 
-    <section class="section-pad proof-belt">
-      <div class="container proof-grid">
-        <article class="card reveal"><strong>1 in 31</strong><p>CDC estimates about 1 in 31 children aged 8 has been identified with autism spectrum disorder.</p></article>
-        <article class="card reveal"><strong>1 in 6</strong><p>CDC reports that about 17% of children aged 3–17 have one or more developmental disabilities.</p></article>
-        <article class="card reveal"><strong>All ages</strong><p>OT supports participation at home, school, work, and in the community.</p></article>
-        <article class="card reveal"><strong>AI-ready</strong><p>FAQs, schema, and clear service pages make Rise easier for search engines and AI tools to understand.</p></article>
-      </div>
-    </section>
+    <section class="section-pad proof-belt"><div class="container proof-grid"><article class="card reveal"><strong>1 in 31</strong><p>CDC estimates about 1 in 31 children aged 8 has been identified with autism spectrum disorder.</p></article><article class="card reveal"><strong>1 in 6</strong><p>CDC reports that about 17% of children aged 3–17 have one or more developmental disabilities.</p></article><article class="card reveal"><strong>All ages</strong><p>OT supports participation at home, school, work, and in the community.</p></article><article class="card reveal"><strong>AI-ready</strong><p>FAQs, schema, and clear service pages make Rise easier for search engines and AI tools to understand.</p></article></div></section>
 
-    <section class="section-pad resources" id="resources">
-      <div class="container two-up">
-        <article class="card reveal"><p class="eyebrow">Resources + education</p><h2>Turn blog content into a trust engine.</h2><div class="resource-list"><div><h3>The After School Scoop</h3><p>Family-centered content that already fits the brand voice and can become stronger SEO/AEO content.</p></div><div><h3>Community Events</h3><p>Playdates, workshops, camps, and local connection opportunities that reinforce belonging.</p></div><div><h3>Client Welcome Packet</h3><p>Make first-visit information easier to scan, find, and understand on mobile.</p></div></div></article>
-        <article class="card reveal"><p class="eyebrow">FAQ accordion concept</p><details open><summary>Do I need a referral?</summary><p>Provider referrals can be faxed to 269-359-3710. The site should also support a secure upload workflow for referrals and supporting documents.</p></details><details><summary>What happens at the first appointment?</summary><p>The welcome packet notes a 60-minute initial evaluation/session, caregiver involvement for clients under 18, a facility tour, and a strengths/concerns discussion.</p></details><details><summary>Why does this help SEO?</summary><p>FAQs create direct answer-style content that helps Google and AI assistants understand and surface Rise for common questions.</p></details></article>
-      </div>
-    </section>
+    <section class="section-pad resources" id="resources"><div class="container two-up"><article class="card reveal"><p class="eyebrow">Resources + education</p><h2>Turn blog content into a trust engine.</h2><div class="resource-list"><div><h3>The After School Scoop</h3><p>Family-centered content that already fits the brand voice and can become stronger SEO/AEO content.</p></div><div><h3>Community Events</h3><p>Playdates, workshops, camps, and local connection opportunities that reinforce belonging.</p></div><div><h3>Client Welcome Packet</h3><p>Make first-visit information easier to scan, find, and understand on mobile.</p></div></div></article><article class="card reveal"><p class="eyebrow">FAQ accordion concept</p><details open><summary>Do I need a referral?</summary><p>Provider referrals can be faxed to 269-359-3710. The site should also support a secure upload workflow for referrals and supporting documents.</p></details><details><summary>What happens at the first appointment?</summary><p>The welcome packet notes a 60-minute initial evaluation/session, caregiver involvement for clients under 18, a facility tour, and a strengths/concerns discussion.</p></details><details><summary>Why does this help SEO?</summary><p>FAQs create direct answer-style content that helps Google and AI assistants understand and surface Rise for common questions.</p></details></article></div></section>
 
-    <section class="section-pad gallery-placeholders">
-      <div class="container gallery-grid">
-        <figure class="image-panel reveal"><div class="placeholder-img">Exterior</div><figcaption>Exterior trust cue</figcaption></figure>
-        <figure class="image-panel reveal"><div class="placeholder-img">Waiting Area</div><figcaption>Warm welcome space</figcaption></figure>
-        <figure class="image-panel reveal"><div class="placeholder-img">Therapy Room</div><figcaption>Main therapy space</figcaption></figure>
-        <figure class="image-panel reveal"><div class="placeholder-img">Sensory Space</div><figcaption>Regulation-friendly room</figcaption></figure>
-        <figure class="image-panel reveal"><div class="placeholder-img">Team</div><figcaption>Staff/community trust</figcaption></figure>
-        <figure class="image-panel reveal"><div class="placeholder-img">Sports</div><figcaption>Rise Sports & Groups</figcaption></figure>
-      </div>
-    </section>
+    <section class="section-pad gallery-section"><div class="container gallery-grid"><figure class="image-panel reveal"><img src="assets/facility-exterior.webp" alt="Rise facility exterior" /><figcaption>Exterior trust cue</figcaption></figure><figure class="image-panel reveal"><img src="assets/waiting-area.webp" alt="Rise waiting area" /><figcaption>Warm welcome space</figcaption></figure><figure class="image-panel reveal"><img src="assets/main-therapy-space.webp" alt="Main therapy space" /><figcaption>Main therapy space</figcaption></figure><figure class="image-panel reveal"><img src="assets/sensory-space.webp" alt="Sensory-informed space" /><figcaption>Regulation-friendly room</figcaption></figure><figure class="image-panel reveal"><img src="assets/staff-group.webp" alt="Rise staff group" /><figcaption>Staff/community trust</figcaption></figure><figure class="image-panel reveal"><img src="assets/rise-sports-groups.webp" alt="Rise sports and groups" /><figcaption>Rise Sports & Groups</figcaption></figure></div></section>
 
-    <section class="section-pad contact-section" id="contact">
-      <div class="container contact-grid">
-        <article class="contact-card dark-contact reveal"><img src="assets/logo-reverse.svg" alt="Rise Therapy & Wellness" /><h2>Let’s connect.</h2><p>8599 N. 32nd Street, Suite 104<br>Richland, MI 49083</p><p><a href="tel:12692037394">269-203-7394</a><br><a href="mailto:connect@risetherapyandwellness.org">connect@risetherapyandwellness.org</a><br>Fax: 269-359-3710</p><p class="small-note">Provider referrals may be faxed to the number above.</p></article>
-        <article class="contact-card map-card reveal"><div class="map-pin">Rise</div><div class="map-copy">Map module should include directions, parking/arrival notes, shoe-free facility expectations, and hours.</div></article>
-        <article class="contact-card reveal"><p class="eyebrow">Already a client?</p><h3>Client Portal should be impossible to miss.</h3><p>Place portal access in the header, footer, billing/help page, new-client hub, and post-submit confirmation.</p><a class="btn btn-orange" href="https://marie-bell.clientsecure.me/" target="_blank" rel="noopener">Open Client Portal</a></article>
-      </div>
-    </section>
+    <section class="section-pad contact-section" id="contact"><div class="container contact-grid"><article class="contact-card dark-contact reveal"><img src="assets/logo-white-horizontal.webp" alt="Rise Therapy & Wellness" /><h2>Let’s connect.</h2><p>8599 N. 32nd Street, Suite 104<br>Richland, MI 49083</p><p><a href="tel:12692037394">269-203-7394</a><br><a href="mailto:connect@risetherapyandwellness.org">connect@risetherapyandwellness.org</a><br>Fax: 269-359-3710</p><p class="small-note">Provider referrals may be faxed to the number above.</p></article><article class="contact-card map-card reveal"><div class="map-pin">Rise</div><div class="map-copy">Map module should include directions, parking/arrival notes, shoe-free facility expectations, and hours.</div></article><article class="contact-card reveal"><p class="eyebrow">Already a client?</p><h3>Client Portal should be impossible to miss.</h3><p>Place portal access in the header, footer, billing/help page, new-client hub, and post-submit confirmation.</p><a class="btn btn-orange" href="https://marie-bell.clientsecure.me/" target="_blank" rel="noopener">Open Client Portal</a></article></div></section>
   </main>
 
-  <footer class="footer">
-    <div class="container footer-grid">
-      <div><img src="assets/logo-reverse.svg" alt="Rise Therapy & Wellness" /><p>Warm. Modern. Neuro-affirming. Community-centered. Built so more families can find the care they need.</p></div>
-      <div><h3>Demo build notes</h3><p>This version balances wow-factor visuals with proposal-mode strategy: strong enough to sell the direction without giving away the whole recipe.</p></div>
-      <div><h3>Primary actions</h3><a href="#trust">See reviews</a><a href="#seo">Review search strategy</a><a href="#contact">Schedule an evaluation</a></div>
-    </div>
-  </footer>
+  <footer class="footer"><div class="container footer-grid"><div><img src="assets/logo-white-horizontal.webp" alt="Rise Therapy & Wellness" /><p>Warm. Modern. Neuro-affirming. Community-centered. Built so more families can find the care they need.</p></div><div><h3>Demo build notes</h3><p>This version balances wow-factor visuals with proposal-mode strategy: strong enough to sell the direction without giving away the whole recipe.</p></div><div><h3>Primary actions</h3><a href="#trust">See reviews</a><a href="#seo">Review search strategy</a><a href="#contact">Schedule an evaluation</a></div></div></footer>
 
   <script src="script.js"></script>
 </body>
