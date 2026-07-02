@@ -30,6 +30,8 @@ function injectHeroLayoutFixes(){
     html,body{max-width:100%!important;overflow-x:hidden!important;}
     body{position:relative!important;}
     .proposal-ribbon,.site-header,main,.hero,.hero-pin,.footer{max-width:100vw!important;overflow-x:clip!important;}
+    .site-header{will-change:opacity,transform;}
+    .hero-nav-cleared .hero:not(.hero-complete) .hero-pin{top:0!important;height:100svh!important;}
     .intro .three-up{grid-template-columns:1.15fr 1fr!important;max-width:920px!important;}
     .intro .three-up article:nth-child(3){display:none!important;}
     .hero:not(.hero-complete){height:320vh!important;}
@@ -54,6 +56,7 @@ function injectHeroLayoutFixes(){
       .proposal-ribbon,.site-header,main,.hero,.hero-pin,.footer,.container{max-width:100vw!important;overflow-x:clip!important;}
       .hero:not(.hero-complete){height:320vh!important;}
       .hero:not(.hero-complete) .hero-pin{position:fixed!important;top:var(--header-h,0px)!important;left:0!important;right:0!important;height:calc(100svh - var(--header-h,0px))!important;z-index:1!important;}
+      .hero-nav-cleared .hero:not(.hero-complete) .hero-pin{top:0!important;height:100svh!important;}
       .hero:not(.hero-complete) .storm-a{top:18%!important;left:-18%!important;width:92vw!important;}
       .hero:not(.hero-complete) .storm-b{top:28%!important;right:-22%!important;width:82vw!important;}
       .hero:not(.hero-complete) .white-a{top:21%!important;left:-14%!important;width:86vw!important;}
@@ -102,6 +105,8 @@ function completeHero(hero,pin,trigger){
   syncHeaderOffset();
   const anchorTop=Math.max(0,hero.offsetTop-headerHeight());
   trigger?.kill(false);
+  document.body.classList.remove('hero-nav-cleared');
+  if(window.gsap){gsap.set('.site-header',{autoAlpha:1,yPercent:0});}
   pin.classList.add('hero-sequence-complete');
   hero.classList.add('hero-complete');
   arrangeHeroActions();
@@ -123,6 +128,7 @@ function initHeroAnimation(){
     if(window.gsap){
       gsap.set(['.bright-bg','.hero-photo-card','.hero-copy'],{opacity:1,y:0,scale:1});
       gsap.set(['.hero-logo-stage','.storm-clouds','.clear-weather','.rain-layer'],{opacity:0});
+      gsap.set('.site-header',{autoAlpha:1,yPercent:0});
       gsap.set('.sunbeam',{width:'58%'});
     }
     return;
@@ -133,6 +139,7 @@ function initHeroAnimation(){
   gsap.set('.clear-weather',{opacity:0});
   gsap.set('.rainbow-img',{opacity:0,y:18});
   gsap.set('.sunbeam',{width:0});
+  gsap.set('.site-header',{autoAlpha:1,yPercent:0});
   const tl=gsap.timeline({defaults:{ease:'none'}});
   tl.to('.storm-a',{xPercent:-100,yPercent:-8,opacity:.08,duration:1.4},0)
     .to('.storm-b',{xPercent:96,yPercent:-8,opacity:.08,duration:1.4},0)
@@ -146,6 +153,8 @@ function initHeroAnimation(){
     .to('.logo-sun-glow',{opacity:1,scale:1.45,duration:1.1},2.05)
     .to('.hero-rise-wordmark',{opacity:1,y:0,duration:.95},2.55)
     .to('.hero-brand-subline',{opacity:1,y:0,duration:.72},2.95)
+    .call(()=>document.body.classList.add('hero-nav-cleared'),null,2.95)
+    .to('.site-header',{autoAlpha:0,yPercent:-100,duration:.95},2.95)
     .to(['.hero-sun-mark','.hero-rise-wordmark','.hero-brand-subline','.logo-sun-glow'],{opacity:0,duration:.95},4.0)
     .to(['.storm-bg','.storm-clouds','.clear-weather','.rain-layer'],{opacity:0,duration:.95},4.0);
   const trigger=ScrollTrigger.create({trigger:'.hero',start:()=>`top top+=${headerHeight()}`,end:'bottom bottom',animation:tl,scrub:1.25,onLeave:self=>{tl.progress(1);requestAnimationFrame(()=>completeHero(hero,pin,self));}});
