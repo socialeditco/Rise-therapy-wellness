@@ -34,7 +34,6 @@ function initHeroAnimation(){
   gsap.set('.clear-weather',{opacity:0});
   gsap.set('.rainbow-img',{opacity:0,y:18});
   gsap.set('.sunbeam',{width:0});
-
   const tl=gsap.timeline({defaults:{ease:'none'}});
   tl.to('.storm-a',{xPercent:-100,yPercent:-10,opacity:.08,duration:1.4},0)
     .to('.storm-b',{xPercent:96,yPercent:-10,opacity:.08,duration:1.4},0)
@@ -53,9 +52,41 @@ function initHeroAnimation(){
     .to('.hero-photo-card',{opacity:1,y:0,scale:1,duration:1.05},4.55)
     .to('.sunbeam',{width:'58%',duration:.9},4.85)
     .to('.hero-copy',{opacity:1,y:0,duration:.85},5.25);
-
   ScrollTrigger.create({trigger:'.hero',start:'top top',end:'bottom bottom',animation:tl,scrub:1.25,onLeave:self=>{if(!heroDone){heroDone=true;tl.progress(1);pin.classList.add('hero-sequence-complete');self.disable(false);}}});
 }
 window.addEventListener('load',initHeroAnimation);
 
 function initTrustCarousel(){const carousel=$('#trustCarousel'),track=$('#trustTrack');if(!carousel||!track)return;Array.from(track.children).forEach(card=>track.appendChild(card.cloneNode(true)));let currentX=0,isDragging=false,startX=0,velocity=0;const halfWidth=()=>track.scrollWidth/2;const render=()=>{if(!isDragging){currentX-=.36+velocity;velocity*=.92;if(Math.abs(velocity)<.015)velocity=0;}const width=halfWidth();if(width&&-currentX>=width)currentX=0;if(width&&currentX>0)currentX=-width+currentX;track.style.transform=`translate3d(${currentX}px,0,0)`;requestAnimationFrame(render);};requestAnimationFrame(render);const start=x=>{isDragging=true;carousel.classList.add('dragging');startX=x-currentX;velocity=0;};const move=x=>{if(!isDragging)return;const previous=currentX;currentX=x-startX;velocity=currentX-previous;};const end=()=>{isDragging=false;carousel.classList.remove('dragging');};carousel.addEventListener('pointerdown',e=>start(e.clientX));window.addEventListener('pointermove',e=>move(e.clientX));window.addEventListener('pointerup',end);}initTrustCarousel();
+
+function initPrototypeBubbles(){
+  const pop=$('#demoPop');
+  if(!pop)return;
+  const titleEl=$('strong',pop), textEl=$('p',pop);
+  let timer;
+  const hide=()=>pop.classList.remove('active');
+  $$('.bubble-link').forEach(link=>{
+    link.addEventListener('click',event=>{
+      event.preventDefault();
+      clearTimeout(timer);
+      const rect=link.getBoundingClientRect();
+      const title=link.dataset.bubbleTitle||'Prototype link';
+      const text=link.dataset.bubble||'In the finished website, this would route visitors to the appropriate page or workflow.';
+      titleEl.textContent=title;
+      textEl.textContent=text;
+      const x=Math.min(Math.max(rect.left+rect.width/2,210),window.innerWidth-210);
+      const y=Math.max(rect.top+window.scrollY-12,window.scrollY+90);
+      pop.style.left=`${x}px`;
+      pop.style.top=`${y}px`;
+      pop.classList.add('active');
+      const href=link.getAttribute('href')||'';
+      if(href.startsWith('#')&&href.length>1){
+        const target=$(href);
+        if(target){setTimeout(()=>target.scrollIntoView({behavior:'smooth',block:'start'}),420);}
+      }
+      timer=setTimeout(hide,5200);
+    });
+  });
+  document.addEventListener('keydown',event=>{if(event.key==='Escape')hide();});
+  document.addEventListener('click',event=>{if(!event.target.closest('.bubble-link')&&!event.target.closest('#demoPop'))hide();});
+}
+initPrototypeBubbles();
