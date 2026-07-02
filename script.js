@@ -32,7 +32,8 @@ function injectHeroLayoutFixes(){
     .proposal-ribbon,.site-header,main,.hero,.hero-pin,.footer{max-width:100vw!important;overflow-x:clip!important;}
     .intro .three-up{grid-template-columns:1.15fr 1fr!important;max-width:920px!important;}
     .intro .three-up article:nth-child(3){display:none!important;}
-    .hero:not(.hero-complete) .hero-pin{top:var(--header-h,0px)!important;height:calc(100svh - var(--header-h,0px))!important;}
+    .hero:not(.hero-complete){height:320vh!important;}
+    .hero:not(.hero-complete) .hero-pin{position:fixed!important;top:var(--header-h,0px)!important;left:0!important;right:0!important;height:calc(100svh - var(--header-h,0px))!important;z-index:1!important;}
     .hero:not(.hero-complete) .storm-a{top:16%!important;width:min(760px,56vw)!important;}
     .hero:not(.hero-complete) .storm-b{top:21%!important;width:min(700px,52vw)!important;}
     .hero:not(.hero-complete) .white-a{top:21%!important;width:min(560px,43vw)!important;}
@@ -51,7 +52,8 @@ function injectHeroLayoutFixes(){
     @media(max-width:1100px){.intro .three-up{grid-template-columns:1fr!important;max-width:100%!important;}.hero.hero-complete .hero-photo-card{width:min(560px,47vw)!important;}.hero.hero-complete h1{font-size:clamp(3.35rem,6.4vw,5.7rem)!important;}}
     @media(max-width:720px){
       .proposal-ribbon,.site-header,main,.hero,.hero-pin,.footer,.container{max-width:100vw!important;overflow-x:clip!important;}
-      .hero:not(.hero-complete) .hero-pin{top:var(--header-h,0px)!important;height:calc(100svh - var(--header-h,0px))!important;}
+      .hero:not(.hero-complete){height:320vh!important;}
+      .hero:not(.hero-complete) .hero-pin{position:fixed!important;top:var(--header-h,0px)!important;left:0!important;right:0!important;height:calc(100svh - var(--header-h,0px))!important;z-index:1!important;}
       .hero:not(.hero-complete) .storm-a{top:18%!important;left:-18%!important;width:92vw!important;}
       .hero:not(.hero-complete) .storm-b{top:28%!important;right:-22%!important;width:82vw!important;}
       .hero:not(.hero-complete) .white-a{top:21%!important;left:-14%!important;width:86vw!important;}
