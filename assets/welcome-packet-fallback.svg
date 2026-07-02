@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
   <title id="title">Rise welcome packet and branded materials</title>
-  <desc id="desc">A warm branded mockup of Rise Therapy and Wellness welcome packet materials.</desc>
+  <desc id="desc">A warm branded mockup of Rise Therapy and Wellness welcome packet materials using the official Rise logo asset.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFDF7"/><stop offset="1" stop-color="#F8E7CF"/></linearGradient>
     <linearGradient id="card" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#FFF4E3"/></linearGradient>
@@ -12,13 +12,10 @@
   <g filter="url(#shadow)" transform="translate(132 86)">
     <rect x="210" y="42" width="560" height="420" rx="30" fill="url(#card)" transform="rotate(4 490 252)"/>
     <rect x="140" y="0" width="560" height="430" rx="32" fill="#fff"/>
-    <rect x="140" y="0" width="560" height="96" rx="32" fill="#264653"/>
-    <path d="M140 70h560v42H140z" fill="#264653"/>
-    <g transform="translate(178 26) scale(.54)">
-      <circle cx="45" cy="45" r="34" fill="none" stroke="#FDBA21" stroke-width="8"/>
-      <path d="M45 17v-15M45 88v15M17 45H2M88 45h15M25 25 14 14M65 65l11 11M65 25l11-11M25 65 14 76" stroke="#F15A24" stroke-width="8" stroke-linecap="round"/>
-    </g>
-    <text x="245" y="62" font-family="Montserrat, Arial, sans-serif" font-size="38" font-weight="800" fill="#fff">rise</text>
+    <rect x="140" y="0" width="560" height="96" rx="32" fill="#fff"/>
+    <path d="M140 70h560v42H140z" fill="#fff"/>
+    <image href="logo-full-color-horizontal.webp" x="176" y="24" width="250" height="58" preserveAspectRatio="xMinYMid meet"/>
+    <line x1="176" y1="104" x2="660" y2="104" stroke="#E8DDD0" stroke-width="2"/>
     <text x="180" y="158" font-family="Montserrat, Arial, sans-serif" font-size="24" font-weight="800" letter-spacing="4" fill="#F15A24">WELCOME PACKET</text>
     <text x="180" y="216" font-family="League Spartan, Montserrat, Arial, sans-serif" font-size="56" font-weight="800" fill="#264653">Start here with care.</text>
     <rect x="180" y="262" width="390" height="18" rx="9" fill="#E8DDD0"/>
@@ -29,8 +26,8 @@
   </g>
   <g filter="url(#shadow)" transform="translate(760 210)">
     <rect width="250" height="310" rx="28" fill="#fff"/>
-    <rect x="32" y="36" width="186" height="24" rx="12" fill="#264653"/>
-    <rect x="32" y="82" width="156" height="14" rx="7" fill="#F15A24" opacity="0.8"/>
+    <image href="logo-full-color-horizontal.webp" x="30" y="26" width="170" height="46" preserveAspectRatio="xMinYMid meet"/>
+    <rect x="32" y="92" width="156" height="14" rx="7" fill="#F15A24" opacity="0.8"/>
     <rect x="32" y="124" width="186" height="12" rx="6" fill="#E8DDD0"/>
     <rect x="32" y="158" width="168" height="12" rx="6" fill="#E8DDD0"/>
     <rect x="32" y="192" width="186" height="12" rx="6" fill="#E8DDD0"/>
