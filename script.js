@@ -21,36 +21,40 @@ function initHeroAnimation(){
   if(!window.gsap||!window.ScrollTrigger||window.matchMedia('(prefers-reduced-motion: reduce)').matches){
     document.body.classList.add('hero-ready');
     pin.classList.add('hero-sequence-complete');
-    if(window.gsap){gsap.set(['.bright-bg','.hero-sun-mark','.hero-rise-wordmark','.hero-brand-subline','.hero-photo-card','.hero-copy','.hero-note'],{opacity:1,y:0,scale:1});gsap.set('.sunbeam',{width:'58%'});}
+    if(window.gsap){
+      gsap.set(['.bright-bg','.hero-photo-card','.hero-copy'],{opacity:1,y:0,scale:1});
+      gsap.set(['.hero-logo-stage','.storm-clouds','.clear-weather','.rain-layer'],{opacity:0});
+      gsap.set('.sunbeam',{width:'58%'});
+    }
     return;
   }
   gsap.registerPlugin(ScrollTrigger);
-  gsap.set(['.hero-sun-mark','.hero-rise-wordmark','.hero-brand-subline','.hero-photo-card','.hero-copy','.hero-note'],{opacity:0});
+  gsap.set(['.hero-sun-mark','.hero-rise-wordmark','.hero-brand-subline','.hero-photo-card','.hero-copy'],{opacity:0});
+  gsap.set('.logo-sun-glow',{opacity:0,scale:.45});
   gsap.set('.clear-weather',{opacity:0});
   gsap.set('.rainbow-img',{opacity:0,y:18});
   gsap.set('.sunbeam',{width:0});
 
   const tl=gsap.timeline({defaults:{ease:'none'}});
-  tl.to('.storm-a',{xPercent:-92,yPercent:-8,opacity:.05,duration:1},0)
-    .to('.storm-b',{xPercent:90,yPercent:-8,opacity:.05,duration:1},0)
-    .to('.storm-c',{xPercent:-65,yPercent:12,opacity:.05,duration:1},.05)
-    .to('.rain-layer',{opacity:.12,duration:1},.05)
-    .to('.bright-bg',{opacity:1,duration:1},.18)
-    .to('.clear-weather',{opacity:1,duration:.9},.32)
-    .fromTo('.white-a',{xPercent:-20,opacity:0},{xPercent:0,opacity:.95,duration:.75},.42)
-    .fromTo('.white-b',{xPercent:20,opacity:0},{xPercent:0,opacity:.95,duration:.75},.46)
-    .to('.rainbow-img',{opacity:.95,y:0,duration:.7},.62)
-    .to('.hero-sun-mark',{opacity:1,y:0,scale:1,duration:.75},.92)
-    .to('.logo-sun-glow',{opacity:1,scale:1.6,duration:.85},1.02)
-    .to('.hero-rise-wordmark',{opacity:1,y:0,duration:.7},1.28)
-    .to('.hero-brand-subline',{opacity:1,y:0,duration:.45},1.48)
-    .to(['.storm-bg','.storm-clouds','.clear-weather','.rain-layer'],{opacity:0,duration:.72},1.9)
-    .to('.hero-photo-card',{opacity:1,y:0,scale:1,duration:.85},2.08)
-    .to('.sunbeam',{width:'58%',duration:.7},2.25)
-    .to('.hero-copy',{opacity:1,y:0,duration:.65},2.36)
-    .to('.hero-note',{opacity:1,y:0,duration:.55},2.44);
+  tl.to('.storm-a',{xPercent:-100,yPercent:-10,opacity:.08,duration:1.4},0)
+    .to('.storm-b',{xPercent:96,yPercent:-10,opacity:.08,duration:1.4},0)
+    .to('.rain-layer',{opacity:.16,duration:1.2},.05)
+    .to('.bright-bg',{opacity:1,duration:1.3},.35)
+    .to('.clear-weather',{opacity:1,duration:1.25},.72)
+    .fromTo('.white-a',{xPercent:-24,opacity:0},{xPercent:0,opacity:.95,duration:1.05},.9)
+    .fromTo('.white-b',{xPercent:24,opacity:0},{xPercent:0,opacity:.95,duration:1.05},1.0)
+    .to('.rainbow-img',{opacity:.95,y:0,duration:1.2},1.35)
+    .to('.hero-sun-mark',{opacity:1,y:0,scale:1,duration:1.05},1.9)
+    .to('.logo-sun-glow',{opacity:1,scale:1.62,duration:1.1},2.05)
+    .to('.hero-rise-wordmark',{opacity:1,y:0,duration:.95},2.55)
+    .to('.hero-brand-subline',{opacity:1,y:0,duration:.72},2.95)
+    .to(['.hero-sun-mark','.hero-rise-wordmark','.hero-brand-subline','.logo-sun-glow'],{opacity:0,duration:.95},4.0)
+    .to(['.storm-bg','.storm-clouds','.clear-weather','.rain-layer'],{opacity:0,duration:.95},4.0)
+    .to('.hero-photo-card',{opacity:1,y:0,scale:1,duration:1.05},4.55)
+    .to('.sunbeam',{width:'58%',duration:.9},4.85)
+    .to('.hero-copy',{opacity:1,y:0,duration:.85},5.25);
 
-  ScrollTrigger.create({trigger:'.hero',start:'top top',end:'bottom bottom',animation:tl,scrub:1.05,onLeave:self=>{if(!heroDone){heroDone=true;tl.progress(1);pin.classList.add('hero-sequence-complete');self.disable(false);}}});
+  ScrollTrigger.create({trigger:'.hero',start:'top top',end:'bottom bottom',animation:tl,scrub:1.25,onLeave:self=>{if(!heroDone){heroDone=true;tl.progress(1);pin.classList.add('hero-sequence-complete');self.disable(false);}}});
 }
 window.addEventListener('load',initHeroAnimation);
 
