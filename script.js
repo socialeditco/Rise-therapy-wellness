@@ -31,6 +31,7 @@ function injectHeroLayoutFixes(){
     body{position:relative!important;}
     .proposal-ribbon,.site-header,main,.hero,.hero-pin,.footer{max-width:100vw!important;overflow-x:clip!important;}
     .site-header{will-change:opacity,transform;}
+    .utility-bar,.main-nav>*{will-change:opacity,transform;}
     .hero-nav-cleared .hero:not(.hero-complete) .hero-pin{top:0!important;height:100svh!important;}
     .intro .three-up{grid-template-columns:1.15fr 1fr!important;max-width:920px!important;}
     .intro .three-up article:nth-child(3){display:none!important;}
@@ -106,7 +107,7 @@ function completeHero(hero,pin,trigger){
   const anchorTop=Math.max(0,hero.offsetTop-headerHeight());
   trigger?.kill(false);
   document.body.classList.remove('hero-nav-cleared');
-  if(window.gsap){gsap.set('.site-header',{autoAlpha:1,yPercent:0});}
+  if(window.gsap){gsap.set(['.site-header','.utility-bar','.main-nav>*'],{autoAlpha:1,yPercent:0});}
   pin.classList.add('hero-sequence-complete');
   hero.classList.add('hero-complete');
   arrangeHeroActions();
@@ -128,7 +129,7 @@ function initHeroAnimation(){
     if(window.gsap){
       gsap.set(['.bright-bg','.hero-photo-card','.hero-copy'],{opacity:1,y:0,scale:1});
       gsap.set(['.hero-logo-stage','.storm-clouds','.clear-weather','.rain-layer'],{opacity:0});
-      gsap.set('.site-header',{autoAlpha:1,yPercent:0});
+      gsap.set(['.site-header','.utility-bar','.main-nav>*'],{autoAlpha:1,yPercent:0});
       gsap.set('.sunbeam',{width:'58%'});
     }
     return;
@@ -139,7 +140,7 @@ function initHeroAnimation(){
   gsap.set('.clear-weather',{opacity:0});
   gsap.set('.rainbow-img',{opacity:0,y:18});
   gsap.set('.sunbeam',{width:0});
-  gsap.set('.site-header',{autoAlpha:1,yPercent:0});
+  gsap.set(['.site-header','.utility-bar','.main-nav>*'],{autoAlpha:1,yPercent:0});
   const tl=gsap.timeline({defaults:{ease:'none'}});
   tl.to('.storm-a',{xPercent:-100,yPercent:-8,opacity:.08,duration:1.4},0)
     .to('.storm-b',{xPercent:96,yPercent:-8,opacity:.08,duration:1.4},0)
@@ -153,8 +154,9 @@ function initHeroAnimation(){
     .to('.logo-sun-glow',{opacity:1,scale:1.45,duration:1.1},2.05)
     .to('.hero-rise-wordmark',{opacity:1,y:0,duration:.95},2.55)
     .to('.hero-brand-subline',{opacity:1,y:0,duration:.72},2.95)
-    .call(()=>document.body.classList.add('hero-nav-cleared'),null,2.95)
-    .to('.site-header',{autoAlpha:0,yPercent:-100,duration:.95},2.95)
+    .to(['.utility-bar','.main-nav>*'],{autoAlpha:0,yPercent:-58,duration:.34},2.98)
+    .call(()=>document.body.classList.add('hero-nav-cleared'),null,3.22)
+    .to('.site-header',{autoAlpha:0,yPercent:-100,duration:.36},3.22)
     .to(['.hero-sun-mark','.hero-rise-wordmark','.hero-brand-subline','.logo-sun-glow'],{opacity:0,duration:.95},4.0)
     .to(['.storm-bg','.storm-clouds','.clear-weather','.rain-layer'],{opacity:0,duration:.95},4.0);
   const trigger=ScrollTrigger.create({trigger:'.hero',start:()=>`top top+=${headerHeight()}`,end:'bottom bottom',animation:tl,scrub:1.25,onLeave:self=>{tl.progress(1);requestAnimationFrame(()=>completeHero(hero,pin,self));}});
